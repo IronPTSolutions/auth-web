@@ -2,10 +2,11 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { User } from '../models/user.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class UsersService {
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = `${environment.apiUrl}/users`;
   private headers = new Headers({ 'Contetn-type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
 

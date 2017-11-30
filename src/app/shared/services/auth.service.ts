@@ -2,12 +2,13 @@ import { User } from './../models/user.model';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
+import { environment } from '../../../environments/environment';
 
 const CURRENT_USER_KEY = 'currentUser';
 
 @Injectable()
 export class AuthService {
-  private baseUrl = 'http://localhost:3000/auth';
+  private baseUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
 
