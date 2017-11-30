@@ -1,0 +1,19 @@
+<table *ngIf="users">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.createdAt | date }}</td>
+      <td>{{ user.updatedAt | date }}</td>
+      <td><button [routerLink]="['/users', user.id ]" >Show details</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="error" *ngIf="error">{{ error }}</p>

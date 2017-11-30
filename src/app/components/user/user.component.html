@@ -1,0 +1,24 @@
+<form (ngSubmit)="onEditUserSubmit(editForm)" #editForm="ngForm">
+  <fieldset>
+    <legend>Edit User</legend>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" [(ngModel)]="user.name"  (ngModelChange)="onFieldChange()" required>
+    </div>
+    <div>
+      <label for="name">Email:</label>
+      <input type="text" name="email" [(ngModel)]="user.email" readonly>
+    </div>
+    <div>
+      <label for="name">Created:</label>
+      <input type="text" name="createdAt" [(ngModel)]="user.createdAt" readonly>
+    </div>
+    <div>
+      <label for="name">Updated:</label>
+      <input type="text" name="updatedAt" [(ngModel)]="user.updatedAt" readonly>
+    </div>
+    <button type="submit" [disabled]="!editForm.valid">Edit</button>
+  </fieldset>
+</form>
+
+<button [routerLink]="['/users']">Back</button>
