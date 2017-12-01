@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from './shared/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
     canDeactivate: [CanLeaveEditUserGuard], resolve: {
       user: UserResolverGuard
     } },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 <form (ngSubmit)="onEditUserSubmit(editForm)" #editForm="ngForm">
   <fieldset>
     <legend>Edit User</legend>
+    <img *ngIf="user.photoUrl" src="{{ apiUrl }}{{ user.photoUrl }}" alt="">    
     <div>
       <label for="name">Name:</label>
       <input type="text" name="name" [(ngModel)]="user.name"  (ngModelChange)="onFieldChange()" required>
@@ -17,6 +18,7 @@
       <label for="name">Updated:</label>
       <input type="text" name="updatedAt" [(ngModel)]="user.updatedAt" readonly>
     </div>
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
     <button type="submit" [disabled]="!editForm.valid">Edit</button>
   </fieldset>
 </form>

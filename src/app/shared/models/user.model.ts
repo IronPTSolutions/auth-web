@@ -5,4 +5,5 @@ export class User {
     password: string;
     createdAt: Date;
     updatedAt: Date;
+    photoUrl: string;
 }
